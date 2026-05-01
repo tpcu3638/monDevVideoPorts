@@ -5,7 +5,7 @@ Wants=network-online.target
 
 [Service]
 Type=simple
-User=%i
+User=root
 WorkingDirectory=/opt/mondevvideoports
 ExecStart=/opt/mondevvideoports/dist/build -s YOUR_NTFY_SLUG -p video0,video1
 Restart=on-failure
