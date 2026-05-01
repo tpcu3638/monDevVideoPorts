@@ -1,0 +1,18 @@
+[Unit]
+Description=Monitor /dev/video* ports and notify via ntfy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/opt/mondevvideoports
+ExecStart=/opt/mondevvideoports/dist/build -s YOUR_NTFY_SLUG -p video0,video1
+Restart=on-failure
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SupplementaryGroups=video
+
+[Install]
+WantedBy=multi-user.target
